@@ -1,68 +1,80 @@
 <!DOCTYPE html>
 <html>
-
 <head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Sona Cricket Scorer</title>
 
 <style>
 
 body{
-font-family:Arial;
-background:#f5f5f5;
-text-align:center;
+    margin:0;
+    font-family:Arial;
+    background:#f2f2f2;
+    text-align:center;
+}
+
+.container{
+    max-width:500px;
+    margin:auto;
+    padding:15px;
 }
 
 h1{
-margin-top:20px;
+    font-size:28px;
 }
 
-.scoreboard{
-background:white;
-padding:20px;
-margin:auto;
-width:320px;
-border-radius:10px;
-box-shadow:0px 0px 10px rgba(0,0,0,0.1);
+.score-box{
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    margin-bottom:20px;
+    box-shadow:0px 2px 10px rgba(0,0,0,0.1);
 }
 
 .score{
-font-size:32px;
-font-weight:bold;
+    font-size:40px;
+    font-weight:bold;
 }
 
-.over{
-margin-top:10px;
-font-size:18px;
+.info{
+    font-size:18px;
+    margin-top:5px;
 }
 
 .buttons{
-margin-top:20px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
 }
 
 button{
-width:120px;
-height:50px;
-margin:6px;
-font-size:16px;
-border:none;
-border-radius:8px;
-cursor:pointer;
+    font-size:18px;
+    padding:15px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
 }
 
 .wide{background:#ffd54f;}
 .noball{background:#ffb74d;}
+.nb1{background:#ffa726;}
+
 .dot{background:#e0e0e0;}
 .beat{background:#64b5f6;}
-.run{background:#aed581;}
-.four{background:#81c784;}
+
+.run{background:#81c784;}
+
 .wicket{background:#e57373;color:white;}
+
 .undo{background:#9575cd;color:white;}
 .done{background:#424242;color:white;}
 
-.over-summary{
-margin-top:15px;
-font-size:18px;
+.over{
+    margin-top:15px;
+    font-size:18px;
 }
 
 </style>
@@ -71,46 +83,41 @@ font-size:18px;
 
 <body>
 
+<div class="container">
+
 <h1>🏏 Sona Cricket Scorer</h1>
 
-<div class="scoreboard">
+<div class="score-box">
 
 <div class="score" id="score">0 / 0</div>
 
-<div class="over">Balls: <span id="balls">0</span></div>
+<div class="info">Balls: <span id="balls">0</span></div>
 
-<div id="target"></div>
+<div class="info">Target: <span id="target">-</span></div>
 
-<div class="over-summary">
-This Over: <span id="thisover">-</span>
-</div>
+<div class="over">This Over: <span id="over"></span></div>
 
 </div>
+
 
 <div class="buttons">
 
-<button class="wide" onclick="wide()">Wide</button>
-<button class="noball" onclick="noball()">No Ball</button>
-<button class="noball" onclick="noballrun()">No Ball+1</button>
+<button class="wide" onclick="addRun(1,false)">Wide</button>
+<button class="noball" onclick="addRun(1,false)">No Ball</button>
 
-<br>
+<button class="nb1" onclick="addRun(2,false)">No Ball+1</button>
+<button class="dot" onclick="addBall(0)">Dot</button>
 
-<button class="dot" onclick="dot()">Dot</button>
 <button class="beat" onclick="beat()">Beat</button>
+<button class="run" onclick="addBall(1)">1 Run</button>
 
-<br>
-
-<button class="run" onclick="run1()">1 Run</button>
-<button class="four" onclick="four()">4</button>
-
-<br>
-
+<button class="run" onclick="addBall(4)">4</button>
 <button class="wicket" onclick="wicket()">Wicket</button>
-
-<br>
 
 <button class="undo" onclick="undo()">Undo</button>
 <button class="done" onclick="done()">Done</button>
+
+</div>
 
 </div>
 
