@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Sona Cricket Scorer</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#f5f5f5;
+text-align:center;
+}
+
+h1{
+margin-top:20px;
+}
+
+.scoreboard{
+background:white;
+padding:20px;
+margin:auto;
+width:320px;
+border-radius:10px;
+box-shadow:0px 0px 10px rgba(0,0,0,0.1);
+}
+
+.score{
+font-size:32px;
+font-weight:bold;
+}
+
+.over{
+margin-top:10px;
+font-size:18px;
+}
+
+.buttons{
+margin-top:20px;
+}
+
+button{
+width:120px;
+height:50px;
+margin:6px;
+font-size:16px;
+border:none;
+border-radius:8px;
+cursor:pointer;
+}
+
+.wide{background:#ffd54f;}
+.noball{background:#ffb74d;}
+.dot{background:#e0e0e0;}
+.beat{background:#64b5f6;}
+.run{background:#aed581;}
+.four{background:#81c784;}
+.wicket{background:#e57373;color:white;}
+.undo{background:#9575cd;color:white;}
+.done{background:#424242;color:white;}
+
+.over-summary{
+margin-top:15px;
+font-size:18px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>🏏 Sona Cricket Scorer</h1>
+
+<div class="scoreboard">
+
+<div class="score" id="score">0 / 0</div>
+
+<div class="over">Balls: <span id="balls">0</span></div>
+
+<div id="target"></div>
+
+<div class="over-summary">
+This Over: <span id="thisover">-</span>
+</div>
+
+</div>
+
+<div class="buttons">
+
+<button class="wide" onclick="wide()">Wide</button>
+<button class="noball" onclick="noball()">No Ball</button>
+<button class="noball" onclick="noballrun()">No Ball+1</button>
+
+<br>
+
+<button class="dot" onclick="dot()">Dot</button>
+<button class="beat" onclick="beat()">Beat</button>
+
+<br>
+
+<button class="run" onclick="run1()">1 Run</button>
+<button class="four" onclick="four()">4</button>
+
+<br>
+
+<button class="wicket" onclick="wicket()">Wicket</button>
+
+<br>
+
+<button class="undo" onclick="undo()">Undo</button>
+<button class="done" onclick="done()">Done</button>
+
+</div>
+
+<script src="/static/script.js"></script>
+
+</body>
+</html>
